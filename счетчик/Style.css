@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.conteiner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    width: 145px;
+    background: white;
+    border: none;
+    font-size: 30px;
+    text-align: center;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+input[value] {
+    font-size: 40px;
+}
+
+.counte {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+}
+
+.conteiner .btn-munys, .btn-plus {
+    padding: 15px;
+    border: solid 2px #222;
+    cursor: pointer;
+    border-radius: 90px;
+    transition: 0.3s ease;
+    font-size: 16px;
+}
+
+.btn-munys {
+    background: red;
+}
+
+.btn-munys:hover {
+    background: rgb(206, 25, 25);
+}
+
+.btn-plus {
+    background: rgb(14, 175, 14);
+}
+
+.btn-plus:hover {
+    background: green;
+}

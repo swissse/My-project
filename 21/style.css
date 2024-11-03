@@ -1,0 +1,142 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ecf0f1;
+}
+
+.game-container {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+h1 {
+    margin-top: 0;
+    color: #f39c12;
+}
+
+.timer {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e67e22;
+}
+
+.hands-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.hand {
+    background-color: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    width: 45%;
+}
+
+.cards {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cards li {
+    display: inline-block;
+    background-color: #f1c40f;
+    color: #2c3e50;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#player2-cards li {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.player-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.player-button {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.game-button {
+    background-color: #3498db;
+    color: white;
+}
+
+#pass, #pass-player2 {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f39c12;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 600px) {
+    .game-container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .hands-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hand {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .game-buttons, .player-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        margin: 5px 0;
+    }
+}

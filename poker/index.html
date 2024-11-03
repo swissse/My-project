@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Покер для двух игроков</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Покер для двоих</h1>
+        <div class="players">
+            <div class="player" id="player1">
+                <h2>Игрок 1</h2>
+                <div class="hand" id="hand1"></div>
+                <div class="score" id="score1"></div>
+            </div>
+            <div class="player" id="player2">
+                <h2>Игрок 2</h2>
+                <div class="hand" id="hand2"></div>
+                <div class="score" id="score2"></div>
+            </div>
+        </div>
+        <div id="community-cards-container">
+            <h3>Общие карты</h3>
+            <div id="community-cards"></div>
+        </div>
+        <button id="deal-button">Раздать карты</button>
+        <button id="determine-winner-button" disabled>Определить победителя</button>
+        <div id="winner" class="winner"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
