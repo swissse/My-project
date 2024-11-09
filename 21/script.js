@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modeSelection = document.getElementById('mode-selection');
     const gameContainer = document.getElementById('game');
+    const player1HandElement = document.getElementById('player1-hand');
+    const player2HandElement = document.getElementById('player2-hand');
     const player1Cards = document.getElementById('player1-cards');
     const player1Score = document.getElementById('player1-score');
     const player2Cards = document.getElementById('player2-cards');
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDisplay = document.getElementById('time-left');
     const timerElement = document.getElementById('timer');
 
-    let cards = [2, 3, 4, 6, 7, 8, 9,  10, 11];
+    let cards = [2, 3, 4, 6, 7, 8, 9, 10, 11];
     cards = cards.flatMap(card => Array(4).fill(card)); // Создаем массив с 4 дубликатами каждой карты
     let player1Hand = [];
     let player2Hand = [];
@@ -191,6 +193,12 @@ document.addEventListener('DOMContentLoaded', () => {
         cards = cards.flatMap(card => Array(4).fill(card)); // Восстанавливаем массив карт
         updateUI();
         startIdleTimer();
+        if (!isBotMode) {
+            player1HandElement.classList.add('active-player');
+            player1HandElement.classList.remove('inactive-player');
+            player2HandElement.classList.add('inactive-player');
+            player2HandElement.classList.remove('active-player');
+        }
     }
 
     document.getElementById('play-with-bot').addEventListener('click', () => {
@@ -215,6 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
         restartGame();
     });
 
+    document.getElementById('rules-button').addEventListener('click', () => {
+        window.location.href = 'rules.html'; // Перенаправление на страницу с правилами
+    });
+
     drawCardButton.addEventListener('click', () => {
         if (isPlayer1Turn) {
             let card = drawCard(player1Hand);
@@ -233,6 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     passButton.disabled = true;
                     drawCardPlayer2Button.disabled = false;
                     passPlayer2Button.disabled = false;
+                    player1HandElement.classList.remove('active-player');
+                    player1HandElement.classList.add('inactive-player');
+                    player2HandElement.classList.remove('inactive-player');
+                    player2HandElement.classList.add('active-player');
                 }
             }
             startIdleTimer(); // Перезапуск таймера после хода игрока
@@ -252,6 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 passButton.disabled = true;
                 drawCardPlayer2Button.disabled = false;
                 passPlayer2Button.disabled = false;
+                player1HandElement.classList.remove('active-player');
+                player1HandElement.classList.add('inactive-player');
+                player2HandElement.classList.remove('inactive-player');
+                player2HandElement.classList.add('active-player');
             }
             startIdleTimer(); // Перезапуск таймера после хода игрока
         }
@@ -269,6 +289,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 passButton.disabled = false;
                 drawCardPlayer2Button.disabled = true;
                 passPlayer2Button.disabled = true;
+                player1HandElement.classList.remove('inactive-player');
+                player1HandElement.classList.add('active-player');
+                player2HandElement.classList.remove('active-player');
+                player2HandElement.classList.add('inactive-player');
             }
             startIdleTimer(); // Перезапуск таймера после хода игрока
         }
@@ -281,6 +305,10 @@ document.addEventListener('DOMContentLoaded', () => {
             passButton.disabled = false;
             drawCardPlayer2Button.disabled = true;
             passPlayer2Button.disabled = true;
+            player1HandElement.classList.remove('inactive-player');
+            player1HandElement.classList.add('active-player');
+            player2HandElement.classList.remove('active-player');
+            player2HandElement.classList.add('inactive-player');
             startIdleTimer(); // Перезапуск таймера после хода игрока
         }
     });
